@@ -1,4 +1,4 @@
-import "./Carrousel.css";
+import "./Carrousel.scss";
 import React from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -22,7 +22,7 @@ function SamplePrevArrow(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block",backgroundColor:"black", position:"absolute", left:"0px",top:"6vw", zIndex:"4" }}
+        style={{ ...style,backgroundColor:"black", position:"absolute", left:"0px",bottom:"6vw", zIndex:"4" }}
         onClick={onClick}
       />
     );
@@ -33,7 +33,7 @@ function SampleNextArrow(props) {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", backgroundColor:"black", position:"absolute", right:"0px",bottom:"6vw", zIndex:"4" }}
+        style={{ ...style, backgroundColor:"black", position:"absolute", right:"0px",bottom:"6vw", zIndex:"4" }}
         onClick={onClick}
       />
     );
@@ -41,17 +41,17 @@ function SampleNextArrow(props) {
   
   
 
-export default function Carrousel() {
+export default function Carrousel({title}) {
     var settings = {
         accessibilit:true,
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 8,
+        slidesToShow: 6,
         slidesToScroll: 4,
         initialSlide: 0, 
-        prevArrow: <SamplePrevArrow />,
-        nextArrow: <SampleNextArrow />,
+        prevArrow: <SamplePrevArrow className="left__arrow" />,
+        nextArrow: <SampleNextArrow className="right__arrow" />,
         responsive: [
           {
             breakpoint: 1024,
@@ -80,20 +80,29 @@ export default function Carrousel() {
         ]
       };
   return (
+    <>
+    <p className="carrousel__headline">{title}</p>
     <Slider {...settings} className="slider">
-
+        
       <CustomSlide />
-      <CustomSlide className="slider__card"/>
-      <CustomSlide className="slider__card"/>
-      <CustomSlide className="slider__card"/>
-      <CustomSlide className="slider__card"/>
-      <CustomSlide className="slider__card"/>
-      <CustomSlide className="slider__card"/>
-      <CustomSlide className="slider__card"/>
-      <CustomSlide className="slider__card"/>
-      <CustomSlide className="slider__card"/>
+      <CustomSlide />
+      <CustomSlide/>
+      <CustomSlide/>
+      <CustomSlide/>
+      <CustomSlide/>
+      <CustomSlide/>
+      <CustomSlide/>
+      <CustomSlide/>
+      <CustomSlide/>
+      <CustomSlide/>
+      <CustomSlide/>
+      <CustomSlide/>
+      <CustomSlide/>
+      <CustomSlide/>
+      <CustomSlide/>
      
      
     </Slider>
+    </>
   );
 }
