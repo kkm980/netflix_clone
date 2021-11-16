@@ -1,0 +1,199 @@
+.slider{
+    margin: auto;
+    position: absolute;
+    top:-90px;
+    background-color:transparent;
+    width: 100%;
+    // height: 120px;
+    margin-bottom: 40px;
+    // z-index: 800;
+   
+}
+.left__arrow{
+    display: block;
+}
+.right__arrow{
+    display: block;
+}
+ .slider:hover{
+        .left__arrow {
+            display: block;
+        }
+        .right__arrow{
+            display: block;
+        }
+    }
+.carrousel__headline{
+    position: relative;
+    bottom: 100px;
+    /* left: 24px; */
+    margin-left: 45px;
+    font-size: 17px;
+    font-weight:bolder;
+    color: white;
+   
+}
+
+.slider__card{
+    // background-color: aqua;
+    // overflow: hidden;
+    // padding-right: 25px;
+    background-image: url("https://via.placeholder.com/350x150");
+    
+    object-fit: contain;
+    width: 220px;
+    height: 120px;
+    /* margin: 0 2px; */
+    /* border: 1px solid red; */
+    border-radius: 5px;
+    /* border: 1px solid red; */
+    video{
+        display: none;
+    }
+    &:hover{
+        position: relative;
+        
+        // height: 480px;
+        // border: 2px solid red;
+        // top:-2px;
+        // bottom:-2px;
+        transform: scale(1.2);
+        transition: 1s;
+        box-shadow: 1px 0px 10px 6px rgba(227,213,213,1);
+-webkit-box-shadow: 1px 0px 10px 6px rgb(255, 255, 255);
+-moz-box-shadow: 1px 0px 10px 6px rgba(227,213,213,1);
+        // height: 320px;
+        // width: 300px;
+        // z-index: 400;
+        // position: relative;
+        // top: 50px;
+        // left: 5px;
+        .moviNameHover{
+            top: 12px;
+            left: 4px;
+            z-index: 5;
+            color: rgb(255, 255, 255);
+        }
+        .movieDescription{
+            z-index: 5;
+            position: relative;
+            top: 12px;
+            // top: 25px;
+            left: 4px;
+            font-size: 10px;
+            width: 145px;
+            color: rgb(216, 176, 176);
+        }
+        .moviDetailsWrap{
+            z-index: 5;
+            position: relative;
+           
+            top: 15px;
+            left: 4px;
+            // font-size: 10px;
+            // width: 145px;
+            color: rgb(179, 37, 37);
+        }
+        .MoviAgeRatedHover{
+            border-radius: 3px;
+            border: 1px solid rgb(0, 255, 221);
+            padding: 1px 3px;
+        }
+        .RespIconContainer{
+            z-index: 5;
+            display: flex;
+            justify-content: flex-start;
+            // width: 85px;
+            position: relative;
+            top: 22px;
+            left: 18px;
+            // font-size: 10px;
+            // width: 145px;
+        }
+        .RespIconContainer>div{
+            z-index: 5;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 1px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2px;
+            margin-right: 5px;
+        }
+
+        .muteOrSound{
+            position: absolute;
+            top: 78px;
+            right: 5px;
+            z-index: 5;
+            cursor: pointer;
+            border-radius: 50%;
+            border: 1px solid red;
+            // padding: -1px;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            object-fit:fill;
+            z-index: 0;
+            display: block;
+          }
+          .moviGenereHover{
+              position: relative;
+            top: 20px;
+            left: 4px;
+            z-index: 5;
+            color: white;
+        }
+    }
+//    img{
+//        width: 100%;
+//        height: 100%;
+//        object-fit: cover;
+//        z-index: -1;
+//    }
+   .moviNameHover{
+       position: relative;
+       top: 5px;
+       left: 25px;
+       z-index: 5;
+       font-size: 10px;
+      
+   }
+   .movieDescription{
+       position: relative;
+       top: 95px;
+       left: 65px;
+       z-index: -1;
+       font-size: 10px;
+   }
+   .moviDetailsWrap{
+       display: flex;
+       flex-direction: row;
+       justify-content: flex-start;
+       position: relative;
+       top: 25px;
+       left: 65px;
+       z-index: -1;
+       font-size: 10px;
+   }
+
+   .moviDetailsWrap>h6{
+      margin-right: 4px;
+   }
+   .moviGenereHover{
+    position: relative;
+  top: 20px;
+  left: 4px;
+  z-index: -1;
+  color: white;
+ }
+   .RespIconContainer{
+     position: relative;
+       z-index: -1;
+   }
+
+   
+}
