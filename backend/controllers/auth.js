@@ -2,6 +2,8 @@ const router = require("express").Router();
 const User = require("../models/User.model");
 const CryptoJS = require("crypto-js");
 
+
+
 // USER REGISTRATION
 
 router.post("/register",async (req,res)=>{
@@ -25,5 +27,26 @@ router.post("/register",async (req,res)=>{
      }
     
 });
+
+
+
+// LOGIN 
+
+router.post("/login", async(req,res)=>{
+    try{
+        const user = await User.findOne({mail:req.body.mail});
+        !user && res.status(401).json("User doesnot exist");
+
+        const bytes  = CryptoJS.AES.decrypt(user.password, process.env.SECRET_KEY);
+        var actualPass = bytes.toString(CryptoJS.enc.Utf8); 
+        actualPass !== req.body.password && res.status(401).json("Wrong Password");
+        res.status(200).json(user);
+    }
+    catch(err){
+        res.status(500).json(err);
+    }
+});
+
+
 
 module.exports = router;
