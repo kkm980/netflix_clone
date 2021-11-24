@@ -6,6 +6,7 @@ import Featured from './helpers/featured/Featured';
 import FeaturedArr from './helpers/featured/FeaturedArr';
 import Home from './home/Home';
 import Register from './register/Register';
+import Login from './login/Login';
 
 function App() {
   return (
@@ -20,8 +21,9 @@ function App() {
     //   <Carrousel title="Netflix & Groove" FeaturedArr={FeaturedArr}/>
     //   <Carrousel title="Thrillers & Horror" FeaturedArr={FeaturedArr}/>
         //  <FullMovi/>
+        // <Register/>
     }
-      <Register/>
+      <Login/>
       
     </div>
   );
