@@ -1,79 +1,73 @@
 
 const router = require("express").Router();
 
-const Movie = require("../models/Movi.model");
+const List = require("../models/List.model");
 
 const verify = require("../verifyToken");
 
-// CREATE MOVIE
 
+// CREATE LIST
 
 router.post("/",verify, async(req,res)=>{
     if(req.user.isAdmin){
-       const newMovie = new Movie(req.body);
+       const newList = new List(req.body);
        try{
-          const ourMovie = await newMovie.save();
-          res.status(201).json(ourMovie);
+          const ourList = await newList.save();
+          res.status(201).json(ourList);
        }catch(err){
            res.status(500).json(err)
        }
     }  else{
-        res.status(403).json("Updating others account is not appreciated!")
+        res.status(403).json("Not allowed")
     }
 });
 
-// UPDATE MOVIE
-
-router.put("/:id",verify, async(req,res)=>{
-    if(req.user.isAdmin){
-      
-       try{
-          const updatedMovie = await Movie.findByIdAndUpdate(
-              req.params.id, 
-              {
-                  $set: req.body,
-              },
-              {new: true}
-          );
-          res.status(200).json(updatedMovie);
-       }catch(err){
-           res.status(500).json(err)
-       }
-    }  else{
-        res.status(403).json("Updating others account is not appreciated!")
-    }
-});
-
-
-// DELETE MOVIE
+// DELETE LIST
 
 router.delete("/:id",verify, async(req,res)=>{
     if(req.user.isAdmin){
-      
+       
        try{
-          await Movie.findByIdAndDelete(req.params.id);
-          res.status(200).json("Deletion of movie successful");
+          await List.findByIdAndDelete(req.params.id);
+          res.status(201).json("deletion was successful");
        }catch(err){
-           res.status(500).json(err)
+           res.status(500).json(err);
        }
     }  else{
-        res.status(403).json("Updating others account is not appreciated!")
+        res.status(403).json("Not allowed")
     }
 });
 
 
+ 
 
 
 
-// GET ONE MOVIE
 
-router.get("/find/:id",verify, async(req,res)=>{
-       try{
-         const movieOne =  await Movie.findById(req.params.id);
-          res.status(200).json(movieOne);
-       }catch(err){
-           res.status(500).json(err)
-       }
+
+// GET ALL LISTS
+
+router.get("/",verify, async(req,res)=>{
+     const typeQuery = req.query.type;
+     const genreQuery = req.query.genere;
+     let list = [];
+     try{
+         if(typeQuery){
+             if(genreQuery){
+                 list = await List.aggregate([{$samle:{size:10}},
+                {$match:{type:typeQuery, genre:genreQuery}}
+                ]);
+             }else{
+                 list = await List.aggregate([{$sample:{size:10}},
+                {$match:{type:typeQuery}},]);
+             }
+         }else{
+             list = await List.aggregate([{$samle:{size:10}}]);
+         }
+         res.status(200).json(list);
+     }catch(err){
+         res.status(500).json(err);
+     }
 });
 
 
