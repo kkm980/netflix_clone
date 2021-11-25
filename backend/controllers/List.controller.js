@@ -71,47 +71,5 @@ router.get("/",verify, async(req,res)=>{
 });
 
 
-// GET ALL MOVIES
-
-router.get("/",verify, async(req,res)=>{
-    if (req.user.isAdmin) {
-        try {
-            const movies = await Movie.find();
-            res.status(200).json(movies.reverse());
-        } catch (err) {
-            res.status(500).json(err);
-        }
-    }else{
-        res.status(403).json("Not allowed");
-    }
-    
-    
-});
-
-
-
-// GET FEATURED MOVIE
-
-router.get("/featured", verify, async(req,res)=>{
-    const type = req.query.type;
-    let movie;
-        try{
-            if(type==="series"){
-                movie = await Movie.aggregate([
-                    {$match:{isMovi:false}},
-                    {$sample: {size:1}},
-                ])
-            }else{
-                movie = await Movie.aggregate([
-                    {$match:{isMovi:true}},
-                    {$sample:{size:1}},
-                ]);
-            }
-            res.status(200).json(movie);
-        }catch(err){
-            res.status(500).json(err);
-        }
-    
-});
 
 module.exports = router;
