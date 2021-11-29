@@ -33,13 +33,18 @@
     color: white;
    
 }
-
+// ._sliderMain{
+//      &:hover{
+//         transform: scale(1.5);
+//         transition: 1s;
+//      }
+// }
 .slider__card{
     // background-color: aqua;
     // overflow: hidden;
     // padding-right: 25px;
     background-image: url("https://via.placeholder.com/350x150");
-    
+    // border: 2px solid red;
     object-fit: contain;
     width: 220px;
     height: 120px;
@@ -51,7 +56,7 @@
         display: none;
     }
     &:hover{
-        position: relative;
+        position: absolute;
         
         // height: 480px;
         // border: 2px solid red;

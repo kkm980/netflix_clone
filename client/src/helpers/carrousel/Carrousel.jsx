@@ -24,7 +24,7 @@ function CustomSlide() {
   
     return (
       
-        <div >
+        <div className="_silderMain">
             <div className="slider__card" onMouseEnter={() => setIsShown(true)}
             onMouseLeave={() => setIsShown(false)} >
             {isShown && (

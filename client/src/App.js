@@ -12,20 +12,23 @@ function App() {
   return (
     <div style={{backgroundColor:"black"}} className="App">
     {
-    //    <Home/>
-    //  <Featured/>
-    //   <Carrousel title="Trending Now" FeaturedArr={FeaturedArr} />
-    //   <Carrousel title="New Released" FeaturedArr={FeaturedArr}/>
-    //  <Carrousel title="Top Rated" FeaturedArr={FeaturedArr}/>
+    //    
+    //  
+    //   
+    //   
+    //  
     //  <Carrousel title="Suspenseful Movies" FeaturedArr={FeaturedArr}/>
     //  <Carrousel title="Netflix & Groove" FeaturedArr={FeaturedArr}/>
     //  <Carrousel title="Thrillers & Horror" FeaturedArr={FeaturedArr}/>
     //     <FullMovi/>
     //      <Register/>
-    
+    // <Login/>
     }
-      <Login/>
-      
+      <Home/>
+      <Featured/>
+      <Carrousel title="Trending Now" FeaturedArr={FeaturedArr} />
+      <Carrousel title="New Released" FeaturedArr={FeaturedArr}/>
+      <Carrousel title="Top Rated" FeaturedArr={FeaturedArr}/>
     </div>
   );
 }

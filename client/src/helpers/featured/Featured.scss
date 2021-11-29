@@ -1,14 +1,16 @@
 ._featured>{
      position:relative;
+    //  top: 5000px;
    div{
-      height: 110vh;
+      height: 130vh;
+    //   overflow-y: scroll;
     //   border: 2px solid red;
       
 
        img{
            width: 100%;
            height: 100%;
-           object-fit: cover;
+           object-fit: fill;
        }
        .logo_ic{
            position: absolute;
