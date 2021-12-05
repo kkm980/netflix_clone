@@ -4,21 +4,38 @@ const router = require("express").Router();
 const Movie = require("../models/Movi.model");
 
 const verify = require("../verifyToken");
-
+const Uploadings = require("./FileUpload.jsx");
 const express = require("express");
 const app = express();
-var fileupload = require("express-fileupload");
-app.use(fileupload());
+
+// var fileupload = require("express-fileupload");
+// app.use();
 
 // CREATE MOVIE
+const cpUpload = Uploadings.fields([{ name: 'img' }, { name: 'trailer' }])
+// app.post('/cool-profile', cpUpload, function (req, res, next) {
 
-
-router.post("/",verify, async(req, res, next)=>{
+router.post("/", verify, cpUpload, async(req, res, next)=>{
     if(req.user.isAdmin){
-       const newMovie = new Movie({...req.body, ...req.files});
+       const newMovie = new Movie({
+
+        title:req.body.title,
+        trailer:req.body.trailer,
+        img:req.body.img
+        // imgTitle:{type:String},
+        // imgSm:{type:String},
+        // trailer:{type:String},
+        // video:{type:String},
+        // year:{type:String},
+        // limit:{type:Number},
+        // genre:{type:String},
+        // isMovie:{type:Boolean, default:true},
+        // searchTimes:{type:Number}
+
+       });
        try{
           const ourMovie = await newMovie.save();
-          console.log(ourMovie);
+          console.log(req.files);
           res.status(201).json(ourMovie);
        }catch(err){
            res.status(500).json(err)
