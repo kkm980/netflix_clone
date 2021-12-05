@@ -1,7 +1,7 @@
 .slider{
     margin: auto;
     position: absolute;
-    top:-90px;
+    top: -40px;
     background-color:transparent;
     width: 100%;
     // height: 120px;
@@ -25,13 +25,14 @@
     }
 .carrousel__headline{
     position: relative;
-    bottom: 100px;
+    top: -50px;
+    // z-index: 25;
     /* left: 24px; */
     margin-left: 45px;
     font-size: 17px;
     font-weight:bolder;
     color: white;
-   
+   background-color: transparent;
 }
 // ._sliderMain{
 //      &:hover{

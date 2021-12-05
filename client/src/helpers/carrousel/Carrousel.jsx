@@ -28,9 +28,10 @@ function CustomSlide() {
             <div className="slider__card" onMouseEnter={() => setIsShown(true)}
             onMouseLeave={() => setIsShown(false)} >
             {isShown && (
-               <video autoPlay muted={hoverMute} loop>
-            <source src={netflixCinematic} type="video/mp4" />
-            </video>
+              
+              <video autoPlay muted={hoverMute} loop>
+              <source src={netflixCinematic} type="video/mp4" />
+              </video>
             )}
            
             <h6 className="moviNameHover">Title</h6>

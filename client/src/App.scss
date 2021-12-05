@@ -3,15 +3,16 @@
 }
 *{
   margin: 0px;
-  padding: 0;
-  // box-sizing: border-box;
+  padding: 0px;
+  box-sizing: border-box;
 }
 
 
 .App {
   font-family: 'Roboto', sans-serif;
   // box-sizing: border-box;
-  // height: 1000px;
+  height: 1000px;
+  overflow-y: scroll;
 }
 
 

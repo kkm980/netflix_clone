@@ -5,14 +5,20 @@ const Movie = require("../models/Movi.model");
 
 const verify = require("../verifyToken");
 
+const express = require("express");
+const app = express();
+var fileupload = require("express-fileupload");
+app.use(fileupload());
+
 // CREATE MOVIE
 
 
-router.post("/",verify, async(req,res)=>{
+router.post("/",verify, async(req, res, next)=>{
     if(req.user.isAdmin){
-       const newMovie = new Movie(req.body);
+       const newMovie = new Movie({...req.body, ...req.files});
        try{
           const ourMovie = await newMovie.save();
+          console.log(ourMovie);
           res.status(201).json(ourMovie);
        }catch(err){
            res.status(500).json(err)
